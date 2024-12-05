@@ -1,0 +1,6 @@
+127.0.0.1 - - [05/Dec/2024:00:27:02 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [05/Dec/2024:00:27:04 +0530] "GET /Employee/ HTTP/1.1" 200 381
+0:0:0:0:0:0:0:1 - - [05/Dec/2024:00:27:08 +0530] "POST /Employee/DeleteEmployee HTTP/1.1" 200 333
+0:0:0:0:0:0:0:1 - - [05/Dec/2024:00:27:11 +0530] "GET /Employee/delete_employee.jsp HTTP/1.1" 200 381
+0:0:0:0:0:0:0:1 - - [05/Dec/2024:00:27:15 +0530] "POST /Employee/DeleteEmployee HTTP/1.1" 200 320
+0:0:0:0:0:0:0:1 - - [05/Dec/2024:00:27:21 +0530] "GET /Employee/delete_employee.jsp HTTP/1.1" 200 381

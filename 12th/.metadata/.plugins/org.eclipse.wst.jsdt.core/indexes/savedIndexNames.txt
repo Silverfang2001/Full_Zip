@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\Atharv Kulkarni\OneDrive\Desktop\12th\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3900546794.index
+759683931.index
+1552100981.index
+2049732229.index
+3831733883.index
+354643151.index
+4091623744.index

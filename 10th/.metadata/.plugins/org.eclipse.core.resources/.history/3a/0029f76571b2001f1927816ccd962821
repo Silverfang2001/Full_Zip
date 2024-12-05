@@ -1,0 +1,42 @@
+package com.emp;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import java.sql.*;
+
+@WebServlet("/deleteEmployee")
+public class DeleteEmployeeServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String empId = request.getParameter("empId");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        System.out.println("HI");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/EmployeeDB", "root", "1234")) {
+            // Check if employee exists
+            String checkQuery = "SELECT * FROM employees WHERE emp_id = ?";
+            try (PreparedStatement ps = conn.prepareStatement(checkQuery)) {
+                ps.setString(1, empId);
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    // Delete employee
+                    String deleteQuery = "DELETE FROM employees WHERE emp_id = ?";
+                    try (PreparedStatement deletePs = conn.prepareStatement(deleteQuery)) {
+                        deletePs.setString(1, empId);
+                        deletePs.executeUpdate();
+                        out.println("<h2>Employee with ID " + empId + " deleted successfully.</h2>");
+                    }
+                } else {
+                    out.println("<h2>Employee with ID " + empId + " not found.</h2>");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace(out);
+            out.println("<h2>Error occurred while deleting employee.</h2>");
+        }
+        out.println("<a href='delete_employee.jsp'>Back</a>");
+    }
+}
+
